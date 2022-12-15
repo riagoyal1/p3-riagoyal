@@ -1,0 +1,47 @@
+<html>
+  <head>
+  <title>Spotify OAuth Example</title>
+  </head>
+  <body>
+      <h1>Spotify Recap</h1>
+  <p>Welcome to Spotify Recap! Here, you can find out your top 20 tracks based on a set amount of time.</p>
+  <p>To see your top 20 tracks from the past month, enter 'short_term' in the search bar.</p>
+  <p>To see your top 20 tracks from the past 6 months, enter 'medium_term' in the search bar.</p>
+  <p>To see your top 20 tracks from all time, enter 'long_term' in the search bar.</p>
+
+  <form>
+ Enter a time range:<br>
+ <input type="text" name="time_period"/>
+      <input type="submit" value="Submit"/>
+  </form>
+    {% if user %}
+     <p>{% if user['img']%}<img src="{{ user['img'] }}" width="25" height="25" />{% endif %} You are logged in as <a href="{{user['profile_url']}}">{{ user['displayname']|escape }}</a>.</p>
+
+    <table style="width:100%">
+    <tr>
+        <th>Song Title</th>
+        <th>Artist</th>
+        <th>Album</th>
+        <th>Album Cover</th>
+    </tr>
+        <br>
+        <h3>You are currently viewing your tracks in the range: {{ time_period }}</h3>
+    {% for track in tracks %}
+        <tr>
+            <td>{{ track['name'] }}</td>
+            <td>{{ track['album']['artists'][0]['name'] }}</td>
+            <td>{{ track['album']['name'] }}</td>
+            <td><img src='{{ track['album']['images'][0]['url'] }}' width='100' height='100'/></td>
+        </tr>
+    {% endfor %}
+    </table>
+    {% if playlists %}
+  	  </ul>
+	  {% endif %}
+      <p><a href="/auth/logout">Log out</a></p>
+    {% else %}
+      <p>You are not yet logged into this site</p>
+      <p><a href="/auth/login">Log in to Spotify</a></p>
+    {% endif %}
+  </body>
+</html>
