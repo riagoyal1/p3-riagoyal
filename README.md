@@ -6,7 +6,7 @@ This project allows users to see their top tracks, similar to the Spotify Wrappe
 
 ## How do I get the key for the Spotify Web API?
 
-In order to get the Client ID and Client Secret necessary to use this app, you can navigate to https://developer.spotify.com/ and log in using your Spotify details. Go to 'Dashboard', then 'Create An App' or 'My New App". After creating the app you'll see Client ID and Client Secret underneath the app name
+In order to get the Client ID and Client Secret necessary to use this app, you can navigate to https://developer.spotify.com/ and log in using your Spotify details. Go to 'Dashboard', then 'Create An App' or 'My New App". After creating the app you'll see Client ID and Client Secret underneath the app name. Add these credentials to the secret.code.py file in order to run your code. 
 
 ## Try it out yourself!
 
